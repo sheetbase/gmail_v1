@@ -1,0 +1,29 @@
+{
+	"name": "@sheetbase/gmail-server",
+	"type": "module",
+	"version": "0.0.1",
+	"description": "Send email using Gmail in Sheetbase backend app.",
+	"author": "Sheetbase",
+	"homepage": "https://sheetbase.net",
+	"license": "MIT",
+	"keywords": [
+		"google-apps-script",
+		"sheetbase",
+		"gmail",
+		"mail"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sheetbase/module-gmail-server.git"
+	},
+	"bugs": {
+		"url": "https://github.com/sheetbase/module-gmail-server/issues"
+	},
+	"dependencies": {},
+	"peerDependencies": {
+		"@sheetbase/core-server": "0.0.2"
+	},
+	"devDependencies": {
+		"@types/google-apps-script": "0.0.28"
+	}
+}
