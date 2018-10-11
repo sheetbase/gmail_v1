@@ -1,44 +1,35 @@
-import { ISheetbaseModule, IAddonRoutesOptions } from '@sheetbase/core-server';
-import { IGmailModule } from './types/module';
-import { IGmailModuleRoutes, IMailingData } from './types/misc';
+import { IModule as ISheetbaseModule, IAddonRoutesOptions } from '@sheetbase/core-server';
 
-declare const Sheetbase: ISheetbaseModule;
+import { IMailingData } from './types/module';
+import { gmailModuleRoutes } from './routes';
 
-declare const gmailModuleRoutes: IGmailModuleRoutes;
+export class Gmail {
 
-export function gmailModuleExports(): IGmailModule {
+    constructor() {}
 
-    class SheetbaseGmail {
-
-        constructor() {}
-
-        registerRoutes(options: IAddonRoutesOptions = null) {
-            gmailModuleRoutes(Sheetbase, this, options);
-        }
-
-        send(email: IMailingData, transporter: string = 'gmail'): IMailingData {
-            if(!email) {
-                throw new Error('mail/no-mailing-data');
-            }            
-            if(!email.recipient) {
-                throw new Error('mail/no-recipient');
-            }        
-            (transporter === 'mailapp' ? MailApp: GmailApp).sendEmail(
-                email.recipient,
-                email.subject || 'Sheetbase Email',
-                email.body || 'Sheetbase email content ...',
-                email.options || {}
-            );    
-            return email;
-        }
-    
-        quota(): { remainingDailyQuota: number; } {
-            return {
-                remainingDailyQuota: MailApp.getRemainingDailyQuota()
-            }
-        }
-        
+    registerRoutes(Sheetbase: ISheetbaseModule, options?: IAddonRoutesOptions) {
+        gmailModuleRoutes(Sheetbase, this, options);
     }
 
-    return new SheetbaseGmail();
+    send(mailingData: IMailingData, transporter: string = 'gmail'): IMailingData {
+        if(!mailingData) {
+            throw new Error('mail/missing');
+        }            
+        if(!mailingData.recipient) {
+            throw new Error('mail/no-recipient');
+        }        
+        (transporter === 'mailapp' ? MailApp: GmailApp).sendEmail(
+            mailingData.recipient,
+            mailingData.subject || 'Sheetbase Email',
+            mailingData.body || 'Sheetbase email content ...',
+            mailingData.options || {}
+        );    
+        return mailingData;
+    }
+
+    quota(): { remainingDailyQuota: number; } {
+        const remainingDailyQuota: number = MailApp.getRemainingDailyQuota();
+        return { remainingDailyQuota }
+    }
+    
 }

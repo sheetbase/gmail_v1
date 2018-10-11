@@ -1,14 +1,6 @@
 {
   "timeZone": "Asia/Bangkok",
-  "dependencies": {
-	"libraries": [
-		{
-		  "userSymbol": "Sheetbase",
-		  "libraryId": "1bhE_YkXnzZLr9hZk_5NXgCY6bAe73UHIGjM4dvyRJLLTyccpu5vS6jeJ",
-		  "version": "2"
-		}
-	]
-  },
+  "dependencies": {},
   "exceptionLogging": "STACKDRIVER",
   "oauthScopes": [
 	"https://www.googleapis.com/auth/gmail.send",
