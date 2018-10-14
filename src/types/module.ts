@@ -1,9 +1,11 @@
-import { IModule as ISheetbaseModule, IAddonRoutesOptions } from '@sheetbase/core-server';
+import { IAddonRoutesOptions } from '@sheetbase/core-server';
+import { IOptions } from './option';
 
-export interface IModule {
-    registerRoutes(Sheetbase: ISheetbaseModule, options?: IAddonRoutesOptions): void;
+export interface IModule {    
+    init(options?: IOptions): IModule;
+    registerRoutes(options?: IAddonRoutesOptions): void;
     send(email: IMailingData, transporter?: string): IMailingData;
-    quota(): {remainingDailyQuota: number};
+    quota(): { remainingDailyQuota: number };
 }
 
 export interface IMailingData {

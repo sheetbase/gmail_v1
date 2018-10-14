@@ -74,11 +74,13 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface"><a href="interfaces/imailingdata.html" class="tsd-kind-icon">IMailing<wbr>Data</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/imodule.html" class="tsd-kind-icon">IModule</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/ioptions.html" class="tsd-kind-icon">IOptions</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#gmailmodule" class="tsd-kind-icon">Gmail<wbr>Module</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#moduleexports" class="tsd-kind-icon">module<wbr>Exports</a></li>
 							</ul>
 						</section>
@@ -94,7 +96,7 @@
 						<section class="tsd-index-section ">
 							<h3>Object literals</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-object-literal"><a href="globals.html#gmail_routing_errors" class="tsd-kind-icon">GMAIL_<wbr>ROUTING_<wbr>ERRORS</a></li>
+								<li class="tsd-kind-object-literal"><a href="globals.html#routing_errors" class="tsd-kind-icon">ROUTING_<wbr>ERRORS</a></li>
 							</ul>
 						</section>
 					</div>
@@ -103,12 +105,43 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
-					<a name="moduleexports" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> module<wbr>Exports</h3>
-					<div class="tsd-signature tsd-kind-icon">module<wbr>Exports<span class="tsd-signature-symbol">:</span> <a href="interfaces/imodule.html" class="tsd-signature-type">IModule</a><span class="tsd-signature-symbol"> =&nbsp;new Gmail()</span></div>
+					<a name="gmailmodule" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Gmail<wbr>Module</h3>
+					<div class="tsd-signature tsd-kind-icon">Gmail<wbr>Module<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/index.ts#L4">index.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/index.ts#L4">index.ts:4</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="interfaces/ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/imodule.html" class="tsd-signature-type">IModule</a></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="interfaces/ioptions.html" class="tsd-signature-type">IOptions</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <a href="interfaces/imodule.html" class="tsd-signature-type">IModule</a></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="moduleexports" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> module<wbr>Exports</h3>
+					<div class="tsd-signature tsd-kind-icon">module<wbr>Exports<span class="tsd-signature-symbol">:</span> <a href="interfaces/imodule.html" class="tsd-signature-type">IModule</a><span class="tsd-signature-symbol"> =&nbsp;new Gmail(options)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/index.ts#L7">index.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -125,7 +158,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in example.ts:10</li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/example.ts#L5">example.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -142,7 +175,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in example.ts:15</li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/example.ts#L10">example.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -159,7 +192,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in example.ts:27</li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/example.ts#L21">example.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -170,22 +203,22 @@
 					<a name="gmailmoduleroutes" class="tsd-anchor"></a>
 					<h3>gmail<wbr>Module<wbr>Routes</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">gmail<wbr>Module<wbr>Routes<span class="tsd-signature-symbol">(</span>Sheetbase<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ISheetbaseModule</span>, Gmail<span class="tsd-signature-symbol">: </span><a href="interfaces/imodule.html" class="tsd-signature-type">IModule</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">IAddonRoutesOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">gmail<wbr>Module<wbr>Routes<span class="tsd-signature-symbol">(</span>Gmail<span class="tsd-signature-symbol">: </span><a href="interfaces/imodule.html" class="tsd-signature-type">IModule</a>, Router<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IRouter</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">IAddonRoutesOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/routes.ts#L16">routes.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/routes.ts#L22">routes.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>Sheetbase: <span class="tsd-signature-type">ISheetbaseModule</span></h5>
+									<h5>Gmail: <a href="interfaces/imodule.html" class="tsd-signature-type">IModule</a></h5>
 								</li>
 								<li>
-									<h5>Gmail: <a href="interfaces/imodule.html" class="tsd-signature-type">IModule</a></h5>
+									<h5>Router: <span class="tsd-signature-type">IRouter</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-type">IAddonRoutesOptions</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
@@ -199,100 +232,100 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Object literals</h2>
 				<section class="tsd-panel tsd-member tsd-kind-object-literal">
-					<a name="gmail_routing_errors" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> GMAIL_<wbr>ROUTING_<wbr>ERRORS</h3>
-					<div class="tsd-signature tsd-kind-icon">GMAIL_<wbr>ROUTING_<wbr>ERRORS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<a name="routing_errors" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> ROUTING_<wbr>ERRORS</h3>
+					<div class="tsd-signature tsd-kind-icon">ROUTING_<wbr>ERRORS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/routes.ts#L4">routes.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/routes.ts#L4">routes.ts:4</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
-						<a name="gmail_routing_errors.mail_missing" class="tsd-anchor"></a>
+						<a name="routing_errors.mail_missing" class="tsd-anchor"></a>
 						<h3>mail/missing</h3>
 						<div class="tsd-signature tsd-kind-icon">mail/missing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/routes.ts#L8">routes.ts:8</a></li>
+								<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/routes.ts#L8">routes.ts:8</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="gmail_routing_errors.mail_missing.message" class="tsd-anchor"></a>
+							<a name="routing_errors.mail_missing.message" class="tsd-anchor"></a>
 							<h3>message</h3>
 							<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Missing inputs.&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/routes.ts#L9">routes.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/routes.ts#L9">routes.ts:9</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="gmail_routing_errors.mail_missing.status" class="tsd-anchor"></a>
+							<a name="routing_errors.mail_missing.status" class="tsd-anchor"></a>
 							<h3>status</h3>
 							<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;400</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/routes.ts#L9">routes.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/routes.ts#L9">routes.ts:9</a></li>
 								</ul>
 							</aside>
 						</section>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
-						<a name="gmail_routing_errors.mail_no_recipient" class="tsd-anchor"></a>
+						<a name="routing_errors.mail_no_recipient" class="tsd-anchor"></a>
 						<h3>mail/no-<wbr>recipient</h3>
 						<div class="tsd-signature tsd-kind-icon">mail/no-<wbr>recipient<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/routes.ts#L11">routes.ts:11</a></li>
+								<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/routes.ts#L11">routes.ts:11</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="gmail_routing_errors.mail_no_recipient.message-1" class="tsd-anchor"></a>
+							<a name="routing_errors.mail_no_recipient.message-1" class="tsd-anchor"></a>
 							<h3>message</h3>
 							<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;No recipient.&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/routes.ts#L12">routes.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/routes.ts#L12">routes.ts:12</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="gmail_routing_errors.mail_no_recipient.status-1" class="tsd-anchor"></a>
+							<a name="routing_errors.mail_no_recipient.status-1" class="tsd-anchor"></a>
 							<h3>status</h3>
 							<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;400</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/routes.ts#L12">routes.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/routes.ts#L12">routes.ts:12</a></li>
 								</ul>
 							</aside>
 						</section>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
-						<a name="gmail_routing_errors.mail_unknown" class="tsd-anchor"></a>
+						<a name="routing_errors.mail_unknown" class="tsd-anchor"></a>
 						<h3>mail/unknown</h3>
 						<div class="tsd-signature tsd-kind-icon">mail/unknown<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/routes.ts#L5">routes.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/routes.ts#L5">routes.ts:5</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="gmail_routing_errors.mail_unknown.message-2" class="tsd-anchor"></a>
+							<a name="routing_errors.mail_unknown.message-2" class="tsd-anchor"></a>
 							<h3>message</h3>
 							<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Unknown errors.&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/routes.ts#L6">routes.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/routes.ts#L6">routes.ts:6</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="gmail_routing_errors.mail_unknown.status-2" class="tsd-anchor"></a>
+							<a name="routing_errors.mail_unknown.status-2" class="tsd-anchor"></a>
 							<h3>status</h3>
 							<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;400</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/routes.ts#L6">routes.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/routes.ts#L6">routes.ts:6</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -319,6 +352,12 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/imodule.html" class="tsd-kind-icon">IModule</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ioptions.html" class="tsd-kind-icon">IOptions</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#gmailmodule" class="tsd-kind-icon">Gmail<wbr>Module</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#moduleexports" class="tsd-kind-icon">module<wbr>Exports</a>
 					</li>
@@ -335,7 +374,7 @@
 						<a href="globals.html#gmailmoduleroutes" class="tsd-kind-icon">gmail<wbr>Module<wbr>Routes</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
-						<a href="globals.html#gmail_routing_errors" class="tsd-kind-icon">GMAIL_<wbr>ROUTING_<wbr>ERRORS</a>
+						<a href="globals.html#routing_errors" class="tsd-kind-icon">ROUTING_<wbr>ERRORS</a>
 					</li>
 				</ul>
 			</nav>

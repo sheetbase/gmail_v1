@@ -1,14 +1,22 @@
-import { IModule as ISheetbaseModule, IAddonRoutesOptions } from '@sheetbase/core-server';
+import { IAddonRoutesOptions } from '@sheetbase/core-server';
 
-import { IMailingData } from './types/module';
+import { IModule, IMailingData, IOptions } from '../index';
 import { gmailModuleRoutes } from './routes';
 
 export class Gmail {
+    private _options: IOptions;
 
-    constructor() {}
+    constructor(options?: IOptions) {
+        this.init(options);
+    }
 
-    registerRoutes(Sheetbase: ISheetbaseModule, options?: IAddonRoutesOptions) {
-        gmailModuleRoutes(Sheetbase, this, options);
+    init(options?: IOptions): IModule {
+        this._options = options;
+        return this;
+    }
+
+    registerRoutes(options?: IAddonRoutesOptions) {
+        gmailModuleRoutes(this, this._options.router, options);
     }
 
     send(mailingData: IMailingData, transporter: string = 'gmail'): IMailingData {

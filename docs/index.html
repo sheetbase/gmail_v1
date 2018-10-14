@@ -62,9 +62,9 @@
 			<div class="tsd-panel tsd-typography">
 				<h1 id="sheetbase-module-sheetbase-gmail-server">Sheetbase Module: @sheetbase/gmail-server</h1>
 				<p>Send email using Gmail in Sheetbase backend app.</p>
-				<!-- <content> -->
+				<!-- <block:header> -->
 				<p><a href="https://github.com/sheetbase/module-gmail-server/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="License"></a> <a href="https://github.com/google/clasp"><img src="https://img.shields.io/badge/built%20with-clasp-4285f4.svg" alt="clasp"></a> <a href="https://www.patreon.com/lamnhan"><img src="https://ionicabizau.github.io/badges/patreon.svg" alt="Support me on Patreon"></a> <a href="https://www.paypal.me/lamnhan"><img src="https://ionicabizau.github.io/badges/paypal_donate.svg" alt="PayPal"></a> <a href="https://m.me/sheetbase"><img src="https://img.shields.io/badge/ask/me-anything-1abc9c.svg" alt="Ask me anything"></a></p>
-				<!-- </content> -->
+				<!-- </block:header> -->
 				<h2 id="install">Install</h2>
 				<ul>
 					<li><p>Using npm: <code>npm install --save @sheetbase/gmail-server</code></p>
@@ -74,7 +74,8 @@
 					</li>
 				</ul>
 				<h2 id="scopes">Scopes</h2>
-				<p><code>https://www.googleapis.com/auth/gmail.send https://www.googleapis.com/auth/script.send_mail</code></p>
+				<p><code>https://www.googleapis.com/auth/gmail.send</code></p>
+				<p><code>https://www.googleapis.com/auth/script.send_mail</code></p>
 				<h2 id="examples">Examples</h2>
 				<pre><code class="language-ts"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">example1</span>(<span class="hljs-params"></span>): <span class="hljs-title">void</span> </span>{
   <span class="hljs-keyword">const</span> quota = Gmail.quota();
@@ -92,27 +93,30 @@
   Logger.log(email);
 }
 
-<span class="hljs-comment">// expose routes</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">example3</span>(<span class="hljs-params"></span>): <span class="hljs-title">void</span> </span>{
-  Gmail.registerRoutes(Sheetbase);
+  Logger.log(<span class="hljs-string">"Not executable example."</span>);
+  <span class="hljs-comment">/**
+ *  expose routes
+ *
+    Gmail.registerRoutes();
+ *
+ */</span>
 }</code></pre>
 				<h2 id="documentation">Documentation</h2>
 				<p>See the docs: <a href="https://sheetbase.github.io/module-gmail-server">https://sheetbase.github.io/module-gmail-server</a></p>
 				<h2 id="api">API</h2>
-				<p>An overview of the API, for detail please refer <a href="https://sheetbase.github.io/module-gmail-server">the documentation</a></p>
+				<p>An overview of the API, for detail please refer <a href="https://sheetbase.github.io/module-gmail-server">the documentation</a>.</p>
 				<h3 id="gmail">Gmail</h3>
 				<pre><code class="language-ts"><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> IModule {
-  registerRoutes(
-    Sheetbase: ISheetbaseModule,
-    options?: IAddonRoutesOptions
-  ): <span class="hljs-built_in">void</span>;
+  init(options?: IOptions): IModule;
+  registerRoutes(options?: IAddonRoutesOptions): <span class="hljs-built_in">void</span>;
   send(email: IMailingData, transporter?: <span class="hljs-built_in">string</span>): IMailingData;
   quota(): { remainingDailyQuota: <span class="hljs-built_in">number</span> };
 }</code></pre>
 				<h2 id="license">License</h2>
 				<p><strong>@sheetbase/gmail-server</strong> is released under the <a href="https://github.com/sheetbase/module-gmail-server/blob/master/LICENSE">MIT</a> license.</p>
-				<!-- <footer> -->
-				<!-- </footer> -->
+				<!-- <block:footer> -->
+				<!-- </block:footer> -->
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -134,6 +138,12 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/imodule.html" class="tsd-kind-icon">IModule</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ioptions.html" class="tsd-kind-icon">IOptions</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#gmailmodule" class="tsd-kind-icon">Gmail<wbr>Module</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#moduleexports" class="tsd-kind-icon">module<wbr>Exports</a>
 					</li>
@@ -150,7 +160,7 @@
 						<a href="globals.html#gmailmoduleroutes" class="tsd-kind-icon">gmail<wbr>Module<wbr>Routes</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
-						<a href="globals.html#gmail_routing_errors" class="tsd-kind-icon">GMAIL_<wbr>ROUTING_<wbr>ERRORS</a>
+						<a href="globals.html#routing_errors" class="tsd-kind-icon">ROUTING_<wbr>ERRORS</a>
 					</li>
 				</ul>
 			</nav>

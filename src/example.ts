@@ -1,11 +1,6 @@
-import { IModule as ISheetbaseModule } from '@sheetbase/core-server';
-import { IModule } from './types/module';
+import { GmailModule } from '../index';
 
-declare const Sheetbase: ISheetbaseModule;
-
-var proccess = proccess || this;
-declare const GmailModule: {(): IModule};
-const Gmail: IModule = proccess['Gmail'] || GmailModule();
+const Gmail = GmailModule();
 
 export function example1(): void {
     const quota = Gmail.quota();
@@ -23,7 +18,12 @@ export function example2(): void {
     Logger.log(email);
 }
 
-// expose routes
 export function example3(): void {
-    Gmail.registerRoutes(Sheetbase);
+    Logger.log('Not executable example.');
+    /**
+     *  expose routes
+     *
+        Gmail.registerRoutes();
+     *
+     */
 }

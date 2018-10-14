@@ -2,11 +2,11 @@
 
 Send email using Gmail in Sheetbase backend app.
 
-<!-- <content> -->
+<!-- <block:header> -->
 
 [![License][license_badge]][license_url] [![clasp][clasp_badge]][clasp_url] [![Support me on Patreon][patreon_badge]][patreon_url] [![PayPal][paypal_donate_badge]][paypal_donate_url] [![Ask me anything][ask_me_badge]][ask_me_url]
 
-<!-- </content> -->
+<!-- </block:header> -->
 
 ## Install
 
@@ -18,7 +18,9 @@ Send email using Gmail in Sheetbase backend app.
 
 ## Scopes
 
-`https://www.googleapis.com/auth/gmail.send https://www.googleapis.com/auth/script.send_mail`
+`https://www.googleapis.com/auth/gmail.send`
+
+`https://www.googleapis.com/auth/script.send_mail`
 
 ## Examples
 
@@ -39,9 +41,14 @@ function example2(): void {
   Logger.log(email);
 }
 
-// expose routes
 function example3(): void {
-  Gmail.registerRoutes(Sheetbase);
+  Logger.log("Not executable example.");
+  /**
+ *  expose routes
+ *
+    Gmail.registerRoutes();
+ *
+ */
 }
 ```
 
@@ -51,16 +58,14 @@ See the docs: https://sheetbase.github.io/module-gmail-server
 
 ## API
 
-An overview of the API, for detail please refer [the documentation](https://sheetbase.github.io/module-gmail-server)
+An overview of the API, for detail please refer [the documentation](https://sheetbase.github.io/module-gmail-server).
 
 ### Gmail
 
 ```ts
 export interface IModule {
-  registerRoutes(
-    Sheetbase: ISheetbaseModule,
-    options?: IAddonRoutesOptions
-  ): void;
+  init(options?: IOptions): IModule;
+  registerRoutes(options?: IAddonRoutesOptions): void;
   send(email: IMailingData, transporter?: string): IMailingData;
   quota(): { remainingDailyQuota: number };
 }
@@ -70,7 +75,7 @@ export interface IModule {
 
 **@sheetbase/gmail-server** is released under the [MIT](https://github.com/sheetbase/module-gmail-server/blob/master/LICENSE) license.
 
-<!-- <footer> -->
+<!-- <block:footer> -->
 
 [license_badge]: https://img.shields.io/github/license/mashape/apistatus.svg
 [license_url]: https://github.com/sheetbase/module-gmail-server/blob/master/LICENSE
@@ -83,4 +88,4 @@ export interface IModule {
 [ask_me_badge]: https://img.shields.io/badge/ask/me-anything-1abc9c.svg
 [ask_me_url]: https://m.me/sheetbase
 
-<!-- </footer> -->
+<!-- </block:footer> -->

@@ -80,9 +80,16 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="gmail.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="gmail.html#_options" class="tsd-kind-icon">_options</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gmail.html#init" class="tsd-kind-icon">init</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gmail.html#quota" class="tsd-kind-icon">quota</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gmail.html#registerroutes" class="tsd-kind-icon">register<wbr>Routes</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gmail.html#send" class="tsd-kind-icon">send</a></li>
@@ -97,22 +104,64 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Gmail<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gmail.html" class="tsd-signature-type">Gmail</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Gmail<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gmail.html" class="tsd-signature-type">Gmail</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/gmail.ts#L6">gmail.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/gmail.ts#L7">gmail.ts:7</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/ioptions.html" class="tsd-signature-type">IOptions</a></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="gmail.html" class="tsd-signature-type">Gmail</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_options" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _options</h3>
+					<div class="tsd-signature tsd-kind-icon">_options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ioptions.html" class="tsd-signature-type">IOptions</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/gmail.ts#L7">gmail.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="init" class="tsd-anchor"></a>
+					<h3>init</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/imodule.html" class="tsd-signature-type">IModule</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/gmail.ts#L13">gmail.ts:13</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/ioptions.html" class="tsd-signature-type">IOptions</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/imodule.html" class="tsd-signature-type">IModule</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="quota" class="tsd-anchor"></a>
 					<h3>quota</h3>
@@ -123,7 +172,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/gmail.ts#L30">gmail.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/gmail.ts#L38">gmail.ts:38</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -136,20 +185,17 @@
 					<a name="registerroutes" class="tsd-anchor"></a>
 					<h3>register<wbr>Routes</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">register<wbr>Routes<span class="tsd-signature-symbol">(</span>Sheetbase<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ISheetbaseModule</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">IAddonRoutesOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Routes<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">IAddonRoutesOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/gmail.ts#L10">gmail.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/gmail.ts#L18">gmail.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>Sheetbase: <span class="tsd-signature-type">ISheetbaseModule</span></h5>
-								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">IAddonRoutesOptions</span></h5>
 								</li>
@@ -168,7 +214,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/b9a00d6/src/gmail.ts#L14">gmail.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/Sheetbase/module-gmail-server/blob/e9105b3/src/gmail.ts#L22">gmail.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -204,6 +250,12 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="gmail.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="gmail.html#_options" class="tsd-kind-icon">_options</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="gmail.html#init" class="tsd-kind-icon">init</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="gmail.html#quota" class="tsd-kind-icon">quota</a>
 							</li>
@@ -223,6 +275,12 @@
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/imodule.html" class="tsd-kind-icon">IModule</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/ioptions.html" class="tsd-kind-icon">IOptions</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#gmailmodule" class="tsd-kind-icon">Gmail<wbr>Module</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#moduleexports" class="tsd-kind-icon">module<wbr>Exports</a>
 					</li>
@@ -239,7 +297,7 @@
 						<a href="../globals.html#gmailmoduleroutes" class="tsd-kind-icon">gmail<wbr>Module<wbr>Routes</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
-						<a href="../globals.html#gmail_routing_errors" class="tsd-kind-icon">GMAIL_<wbr>ROUTING_<wbr>ERRORS</a>
+						<a href="../globals.html#routing_errors" class="tsd-kind-icon">ROUTING_<wbr>ERRORS</a>
 					</li>
 				</ul>
 			</nav>

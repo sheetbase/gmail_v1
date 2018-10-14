@@ -5,22 +5,27 @@ var module = module || { exports: exports };
  * Name: @sheetbase/gmail-server
  * Export name: Gmail
  * Description: Send email using Gmail in Sheetbase backend app.
- * Version: 0.0.2
+ * Version: 0.0.3
  * Author: Sheetbase
  * Homepage: https://sheetbase.net
  * License: MIT
  * Repo: https://github.com/sheetbase/module-gmail-server.git
  */
 
-function GmailModule() {
-    // import { IModule as ISheetbaseModule, IAddonRoutesOptions } from '@sheetbase/core-server';
-    // import { IMailingData } from './types/module';
+function GmailModule(options) {
+    // import { IAddonRoutesOptions } from '@sheetbase/core-server';
+    // import { IModule, IMailingData, IOptions } from '../index';
     // import { gmailModuleRoutes } from './routes';
     var Gmail = /** @class */ (function () {
-        function Gmail() {
+        function Gmail(options) {
+            this.init(options);
         }
-        Gmail.prototype.registerRoutes = function (Sheetbase, options) {
-            gmailModuleRoutes(Sheetbase, this, options);
+        Gmail.prototype.init = function (options) {
+            this._options = options;
+            return this;
+        };
+        Gmail.prototype.registerRoutes = function (options) {
+            gmailModuleRoutes(this, this._options.router, options);
         };
         Gmail.prototype.send = function (mailingData, transporter) {
             if (transporter === void 0) { transporter = 'gmail'; }
@@ -39,9 +44,9 @@ function GmailModule() {
         };
         return Gmail;
     }());
-    // import { IModule as ISheetbaseModule, IRoutingErrors, IAddonRoutesOptions, IHttpHandler } from '@sheetbase/core-server';
+    // import { IRoutingErrors, IAddonRoutesOptions, IRouteHandler, IRouter, IRouteResponse } from '@sheetbase/core-server';
     // import { IModule, IMailingData } from './types/module';
-    var GMAIL_ROUTING_ERRORS = {
+    var ROUTING_ERRORS = {
         'mail/unknown': {
             status: 400, message: 'Unknown errors.'
         },
@@ -52,46 +57,50 @@ function GmailModule() {
             status: 400, message: 'No recipient.'
         }
     };
-    function gmailModuleRoutes(Sheetbase, Gmail, options) {
+    function routingError(res, code) {
+        var error = ROUTING_ERRORS[code] || ROUTING_ERRORS['mail/unknown'];
+        var status = error.status, message = error.message;
+        return res.error(code, message, status);
+    }
+    function gmailModuleRoutes(Gmail, Router, options) {
         if (options === void 0) { options = {}; }
-        var _a, _b;
-        var customName = options.customName || 'mail';
+        if (!Router) {
+            throw new Error('No router, please check out for Sheetbase Router.');
+        }
+        var endpoint = options.endpoint || 'mail';
         var middlewares = options.middlewares || ([
             function (req, res, next) { return next(); }
         ]);
         // send an email
-        (_a = Sheetbase.Router).post.apply(_a, ['/' + customName].concat(middlewares, [function (req, res) {
-                var mailingData = req.body.mailingData;
-                var transporter = req.body.transporter;
+        Router.post.apply(Router, ['/' + endpoint].concat(middlewares, [function (req, res) {
                 var result;
                 try {
+                    var mailingData = req.body.mailingData;
+                    var transporter = req.body.transporter;
                     result = Gmail.send(mailingData, transporter);
                 }
                 catch (code) {
-                    var _a = GMAIL_ROUTING_ERRORS[code], status = _a.status, message = _a.message;
-                    return res.error(code, message, status);
+                    return routingError(res, code);
                 }
                 return res.success(result);
             }]));
         // get daily quota
-        (_b = Sheetbase.Router).get.apply(_b, ['/' + customName + '/quota'].concat(middlewares, [function (req, res) {
+        Router.get.apply(Router, ['/' + endpoint + '/quota'].concat(middlewares, [function (req, res) {
                 var result;
                 try {
                     result = Gmail.quota();
                 }
                 catch (code) {
-                    var _a = GMAIL_ROUTING_ERRORS[code], status = _a.status, message = _a.message;
-                    return res.error(code, message, status);
+                    return routingError(res, code);
                 }
                 return res.success(result);
             }]));
     }
-    // import { IModule } from './types/module';
-    // import { Gmail } from './gmail';
-    var moduleExports = new Gmail();
+    var moduleExports = new Gmail(options);
     return moduleExports || {};
 }
 exports.GmailModule = GmailModule;
-// add to the global namespace
-var proccess = proccess || this;
-proccess['Gmail'] = GmailModule();
+// add 'Gmail' to the global namespace
+(function (process) {
+    process['Gmail'] = GmailModule();
+})(this);
