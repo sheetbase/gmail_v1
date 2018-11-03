@@ -20,10 +20,10 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/sheetbase/module-gmail-server.git"
+		"url": "https://github.com/sheetbase/gmail-server.git"
 	},
 	"bugs": {
-		"url": "https://github.com/sheetbase/module-gmail-server/issues"
+		"url": "https://github.com/sheetbase/gmail-server/issues"
 	},
 	"dependencies": {},
 	"devDependencies": {
