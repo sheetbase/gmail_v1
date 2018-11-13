@@ -27,9 +27,9 @@ const Gmail = GmailModule.Gmail;
 
 ## Scopes
 
-`https://www.googleapis.com/auth/gmail.send
+`https://www.googleapis.com/auth/gmail.send`
 
-https://www.googleapis.com/auth/script.send_mail`
+`https://www.googleapis.com/auth/script.send_mail`
 
 ## Usage
 

@@ -2,7 +2,7 @@ import { RouterService } from '@sheetbase/core-server';
 
 export interface Options {
     router?: RouterService | any;
-    disabledRoutes?: string[];
+    disabledRoutes?: string | string[];
 }
 
 export interface MailingData {

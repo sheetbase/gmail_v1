@@ -7,7 +7,10 @@ export class GmailService {
     private options: Options;
 
     constructor(options?: Options) {
-        this.options = options;
+        this.options = {
+            disabledRoutes: [],
+            ... options,
+        };
     }
 
     getOptions(): Options {
