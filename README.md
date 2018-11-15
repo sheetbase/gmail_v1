@@ -25,12 +25,6 @@ declare const GmailModule: { Gmail: any };
 const Gmail = GmailModule.Gmail;
 ```
 
-## Scopes
-
-`https://www.googleapis.com/auth/gmail.send`
-
-`https://www.googleapis.com/auth/script.send_mail`
-
 ## Usage
 
 - Docs homepage: https://sheetbase.github.io/gmail-server
