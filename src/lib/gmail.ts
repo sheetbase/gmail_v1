@@ -1,27 +1,20 @@
-import { AddonRoutesOptions } from '@sheetbase/core-server';
-
-import { MailingData, Options } from './types';
+import { MailingData, AddonRoutesOptions } from './types';
 import { moduleRoutes } from './routes';
 
 export class GmailService {
-    private options: Options;
 
-    constructor(options?: Options) {
-        this.options = {
-            disabledRoutes: [],
-            ... options,
-        };
-    }
+    constructor() {}
 
-    getOptions(): Options {
-        return this.options;
-    }
-
-    registerRoutes(options?: AddonRoutesOptions) {
+    registerRoutes(options: AddonRoutesOptions) {
         return moduleRoutes(this, options);
     }
 
-    send(mailingData: MailingData, transporter = 'gmail'): MailingData {
+    send(mailingData: MailingData, transporter = 'gmail'): {
+        sent: boolean;
+        data: MailingData;
+        transporter: string;
+        remainingDailyQuota: number;
+    } {
         if(!mailingData) {
             throw new Error('mail/missing');
         }
@@ -30,11 +23,16 @@ export class GmailService {
         }
         (transporter === 'mailapp' ? MailApp : GmailApp).sendEmail(
             mailingData.recipient,
-            mailingData.subject || 'Sheetbase Email',
-            mailingData.body || 'Sheetbase email content ...',
+            mailingData.subject || 'A Sheetbase Email',
+            mailingData.body || 'The Sheetbase email content ...',
             mailingData.options || {},
         );
-        return mailingData;
+        return {
+            sent: true,
+            data: mailingData,
+            transporter: (transporter === 'mailapp') ? transporter : 'gmail',
+            ... this.quota(),
+        };
     }
 
     quota(): { remainingDailyQuota: number; } {

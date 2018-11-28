@@ -1,7 +1,7 @@
-import { RouterService } from '@sheetbase/core-server';
+import { RouterService, AddonRoutesOptions } from '@sheetbase/core-server';
 
-export interface Options {
-    router?: RouterService | any;
+export interface AddonRoutesOptions extends AddonRoutesOptions {
+    router: RouterService;
     disabledRoutes?: string | string[];
 }
 

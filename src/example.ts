@@ -15,7 +15,7 @@ export function example2(): void {
     const Gmail = load_();
 
     const email = Gmail.send({
-        recipient: '<email_address>',
+        recipient: 'email_address',
         subject: 'Hello',
         options: {
             htmlBody: '<h1>Hello</h1><p>Gmail here!</p>',

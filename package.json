@@ -1,6 +1,6 @@
 {
    "name": "@sheetbase/gmail-server",
-   "version": "0.0.5",
+   "version": "0.0.6",
    "description": "Send email using Gmail in Sheetbase backend app.",
    "author": "Sheetbase",
    "homepage": "https://sheetbase.net",
@@ -38,7 +38,7 @@
    },
    "dependencies": {},
    "peerDependencies": {
-      "@sheetbase/core-server": "0.0.13"
+      "@sheetbase/core-server": "0.0.14"
    },
    "devDependencies": {
       "@sheetbase/app-scripts": "^0.0.28",
@@ -46,10 +46,12 @@
       "@types/google-apps-script": "^0.0.32",
       "@types/mocha": "^5.2.5",
       "@types/node": "^10.12.8",
+      "@types/sinon": "^5.0.7",
       "chai": "^4.2.0",
       "coveralls": "^3.0.2",
       "mocha": "^5.2.0",
       "nyc": "^13.1.0",
+      "sinon": "^7.1.1",
       "tslint": "^5.11.0",
       "typescript": "^3.1.6"
    }
