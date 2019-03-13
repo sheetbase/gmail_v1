@@ -14,6 +14,7 @@ export class GmailService {
         this.options = {
             prefix: 'Sheetbase',
             categories: {},
+            templates: {},
             ... options,
         };
         this.options.categories['uncategorized'] = {
@@ -52,11 +53,12 @@ export class GmailService {
             const {
                 mailingData,
                 category = 'uncategorized',
+                template = null,
                 silent = null,
             } = req.body;
             let result: any;
             try {
-                result = this.send(mailingData, category, silent);
+                result = this.send(mailingData, category, template, silent);
             } catch (code) {
                 return res.error(code);
             }
@@ -68,6 +70,7 @@ export class GmailService {
     send(
         mailingData: MailingData,
         categoryName = 'uncategorized',
+        template = null,
         silent = null,
     ) {
         if(!mailingData) {
@@ -78,7 +81,7 @@ export class GmailService {
         }
 
         // configs
-        const { forwarding, prefix, categories } = this.options;
+        const { forwarding, prefix, categories, templates } = this.options;
 
         // category
         let category: string | Category = categories[categoryName] || categories['uncategorized'];
@@ -96,7 +99,7 @@ export class GmailService {
         const {
             recipient,
             subject = 'A email sent by Sheetbase app',
-            body = 'This email was sent by a Sheetbase backend app.',
+            body: mailBody = 'This email was sent by a Sheetbase backend app.',
             options: mailOptions = {},
         } = mailingData;
 
@@ -112,11 +115,26 @@ export class GmailService {
             options['bcc'] = !!options['bcc'] ? (options['bcc'] + ', ' + forwarding) : forwarding;
         }
 
+        // templating
+        let body: string = mailBody;
+        if (!!template) {
+            const [ templateName ] = Object.keys(template);
+            const data = template[templateName] || {};
+            const templating = templates[templateName] || (
+                (data: any) => (`<p>${body}. With data: </p>` +
+                    '<p><code><pre>' + JSON.stringify(data, null, 3) + '</pre></code></p>'
+                )
+            );
+            const htmlBody = templating(data);
+            body = htmlBody.replace(/<[^>]*>?/g, '');
+            options['htmlBody'] = htmlBody;
+        }
+
         // send
         GmailApp.sendEmail(recipient, '(' + prefix + ') ' + subject, body, options);
 
         // retrieve thread
-        Utilities.sleep(3000);
+        Utilities.sleep(2000);
         const sentThreads = GmailApp.search('from:me to:' + recipient);
         const [ thread ] = sentThreads;
         // set label

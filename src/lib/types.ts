@@ -3,11 +3,16 @@ export interface Category {
     silent?: boolean;
 }
 
+export type Templating = (data: any) => string;
+
 export interface Options {
     forwarding?: string;
     prefix?: string;
     categories?: {
         [name: string]: string | Category;
+    };
+    templates?: {
+        [name: string]: Templating;
     };
 }
 
