@@ -113,7 +113,7 @@ export class GmailService {
         }
 
         // send
-        GmailApp.sendEmail(recipient, subject, body, options);
+        GmailApp.sendEmail(recipient, '(' + prefix + ') ' + subject, body, options);
 
         // retrieve thread
         Utilities.sleep(3000);
