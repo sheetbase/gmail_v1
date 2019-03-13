@@ -1,6 +1,6 @@
 {
    "name": "@sheetbase/gmail-server",
-   "version": "0.0.7",
+   "version": "0.0.8",
    "description": "Send email using Gmail in Sheetbase backend app.",
    "author": "Sheetbase",
    "homepage": "https://sheetbase.net",

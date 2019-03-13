@@ -1,3 +1,16 @@
+export interface Category {
+    title?: string;
+    silent?: boolean;
+}
+
+export interface Options {
+    forwarding?: string;
+    prefix?: string;
+    categories?: {
+        [name: string]: string | Category;
+    };
+}
+
 export interface MailingData {
     recipient: string;
     subject?: string;
