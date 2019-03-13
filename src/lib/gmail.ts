@@ -120,11 +120,9 @@ export class GmailService {
         if (!!template) {
             const [ templateName ] = Object.keys(template);
             const data = template[templateName] || {};
-            const templating = templates[templateName] || (
-                (data: any) => (`<p>${body}. With data: </p>` +
-                    '<p><code><pre>' + JSON.stringify(data, null, 3) + '</pre></code></p>'
-                )
-            );
+            const templating = templates[templateName] || ((data: any) => (
+                '<p><code><pre>' + JSON.stringify(data, null, 3) + '</pre></code></p>'
+            ));
             const htmlBody = templating(data);
             body = htmlBody.replace(/<[^>]*>?/g, '');
             options['htmlBody'] = htmlBody;
