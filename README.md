@@ -1,4 +1,4 @@
-# Sheetbase Module: @sheetbase/gmail-server
+# Sheetbase Module: @sheetbase/gmail
 
 Send email using Gmail in Sheetbase backend app.
 
@@ -10,10 +10,10 @@ Send email using Gmail in Sheetbase backend app.
 
 ## Install
 
-Using npm: `npm install --save @sheetbase/gmail-server`
+Using npm: `npm install --save @sheetbase/gmail`
 
 ```ts
-import * as Gmail from "@sheetbase/gmail-server";
+import * as Gmail from "@sheetbase/gmail";
 ```
 
 As a library: `1cKQyLf_OZwivLAiNBw-naLV_uq-lmf8AcOEnE9t5E9IQhA1Fo8JTV_sm`
@@ -250,19 +250,9 @@ Override category silent:
 
 <!-- </block:body> -->
 
-### Examples
-
-```ts
-import * as Gmail from "./public_api";
-
-function load_() {
-  return Gmail.gmail();
-}
-```
-
 ## License
 
-**@sheetbase/gmail-server** is released under the [MIT](https://github.com/sheetbase/gmail-server/blob/master/LICENSE) license.
+**@sheetbase/gmail** is released under the [MIT](https://github.com/sheetbase/gmail-server/blob/master/LICENSE) license.
 
 <!-- <block:footer> -->
 

@@ -1,13 +1,13 @@
 {
-   "name": "@sheetbase/gmail-server",
-   "version": "0.0.8",
+   "name": "@sheetbase/gmail",
+   "version": "1.0.0-rc.0",
    "description": "Send email using Gmail in Sheetbase backend app.",
    "author": "Sheetbase",
    "homepage": "https://sheetbase.net",
    "license": "MIT",
-   "main": "dist/bundles/sheetbase-gmail-server.umd.js",
-   "module": "dist/fesm3/sheetbase-gmail-server.js",
-   "typings": "dist/sheetbase-gmail-server.d.ts",
+   "main": "dist/bundles/sheetbase-gmail.umd.js",
+   "module": "dist/fesm3/sheetbase-gmail.js",
+   "typings": "dist/sheetbase-gmail.d.ts",
    "files": [
       "dist"
    ],
@@ -18,7 +18,7 @@
       "build": "npm run module && npm run readme && npm run docs",
       "push": "cd deploy && clasp push",
       "lint": "tslint --project tslint.json && echo 'All files pass linting.'",
-      "test": "tsc -p tests/tsconfig.test.json && nyc --cache false mocha --timeout 100000 -- build/tests/*.js",
+      "test": "tsc -p tests/tsconfig.test.json && nyc --cache false mocha --timeout 100000 build/tests/*.js",
       "coverage": "nyc --cache false report --reporter=text-lcov | coveralls"
    },
    "nyc": {
@@ -41,21 +41,21 @@
    },
    "dependencies": {},
    "peerDependencies": {
-      "@sheetbase/core-server": "0.0.19"
+      "@sheetbase/server": "1.0.0-rc.0"
    },
    "devDependencies": {
-      "@sheetbase/app-scripts": "^0.0.30",
+      "@sheetbase/app-scripts": "^1.0.0-rc.0",
       "@types/chai": "^4.1.7",
-      "@types/google-apps-script": "^0.0.32",
-      "@types/mocha": "^5.2.5",
-      "@types/node": "^10.12.8",
-      "@types/sinon": "^5.0.7",
+      "@types/google-apps-script": "^0.0.44",
+      "@types/mocha": "^5.2.6",
+      "@types/node": "^11.13.4",
+      "@types/sinon": "^7.0.11",
       "chai": "^4.2.0",
-      "coveralls": "^3.0.2",
-      "mocha": "^5.2.0",
-      "nyc": "^13.1.0",
-      "sinon": "^7.1.1",
-      "tslint": "^5.11.0",
-      "typescript": "^3.1.6"
+      "coveralls": "^3.0.3",
+      "mocha": "^6.1.3",
+      "nyc": "^13.3.0",
+      "sinon": "^7.3.1",
+      "tslint": "^5.15.0",
+      "typescript": "^3.4.3"
    }
 }

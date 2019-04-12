@@ -1,4 +1,4 @@
-import { AddonRoutesOptions, RoutingErrors } from '@sheetbase/core-server';
+import { AddonRoutesOptions, RoutingErrors } from '@sheetbase/server';
 
 import { Options, Category, MailingData } from './types';
 
