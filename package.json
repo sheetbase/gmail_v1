@@ -34,10 +34,10 @@
    ],
    "repository": {
       "type": "git",
-      "url": "https://github.com/sheetbase/gmail-server.git"
+      "url": "https://github.com/sheetbase/gmail.git"
    },
    "bugs": {
-      "url": "https://github.com/sheetbase/gmail-server/issues"
+      "url": "https://github.com/sheetbase/gmail/issues"
    },
    "dependencies": {},
    "peerDependencies": {
