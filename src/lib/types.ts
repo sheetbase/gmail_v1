@@ -6,8 +6,8 @@ export interface Category {
 export type Templating = (data: any) => string;
 
 export interface Options {
+    prefix: string;
     forwarding?: string;
-    prefix?: string;
     categories?: {
         [name: string]: string | Category;
     };

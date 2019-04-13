@@ -5,14 +5,12 @@ import { Options, Category, MailingData } from './types';
 export class GmailService {
     private options: Options;
     private errors: RoutingErrors = {
-        'mail/unknown': { status: 500, message: 'Unknown errors.' },
-        'mail/missing': 'Missing inputs.',
-        'mail/no-recipient': 'No recipient.',
+        'mail/missing-data': 'Missing mailing data.',
     };
 
-    constructor(options: Options = {}) {
+    constructor(options: Options) {
         this.options = {
-            prefix: 'Sheetbase',
+            prefix: 'App',
             categories: {},
             templates: {},
             ... options,
@@ -67,82 +65,39 @@ export class GmailService {
 
     }
 
-    send(
+    send<TemplateData>(
         mailingData: MailingData,
         categoryName = 'uncategorized',
-        template = null,
-        silent = null,
+        template: {[name: string]: TemplateData} = null,
+        silent = null, // custom silent (override category silent)
     ) {
-        if(!mailingData) {
-            throw new Error('mail/missing');
+        if(
+            !mailingData ||
+            !mailingData.recipient
+        ) {
+            throw new Error('mail/missing-data');
         }
-        if(!mailingData.recipient) {
-            throw new Error('mail/no-recipient');
-        }
-
-        // configs
-        const { forwarding, prefix, categories, templates } = this.options;
 
         // category
-        let category: string | Category = categories[categoryName] || categories['uncategorized'];
-        if (typeof category === 'string') {
-            category = { title: category, silent: false };
-        }
-
-        // load silent config from categories
-        // if no silent provided
-        if (silent === null) {
-            silent = category.silent || false;
-        }
+        const category = this.loadCategory(categoryName, silent);
 
         // data
         const {
             recipient,
-            subject = 'A email sent by Sheetbase app',
-            body: mailBody = 'This email was sent by a Sheetbase backend app.',
-            options: mailOptions = {},
-        } = mailingData;
+            subject,
+            body,
+            options,
+        } = this.processMailingData(
+            mailingData,
+            template,
+            category.silent,
+        );
 
-        // advanced options
-        const options: any = mailOptions;
-        // from
-        if (!options['from']) {
-            const [ alias ] = GmailApp.getAliases();
-            if (!!alias) { options['from'] = alias; }
-        }
-        // forwarding
-        if (!!forwarding && !silent) {
-            options['bcc'] = !!options['bcc'] ? (options['bcc'] + ', ' + forwarding) : forwarding;
-        }
+        // send email
+        GmailApp.sendEmail(recipient, subject, body, options);
+        const thread = this.processThread(recipient, category);
 
-        // templating
-        let body: string = mailBody;
-        if (!!template) {
-            const [ templateName ] = Object.keys(template);
-            const data = template[templateName] || {};
-            const templating = templates[templateName] || ((data: any) => (
-                '<p><code><pre>' + JSON.stringify(data, null, 3) + '</pre></code></p>'
-            ));
-            const htmlBody = templating(data);
-            body = htmlBody.replace(/<[^>]*>?/g, '');
-            options['htmlBody'] = htmlBody;
-        }
-
-        // send
-        GmailApp.sendEmail(recipient, '(' + prefix + ') ' + subject, body, options);
-
-        // retrieve thread
-        Utilities.sleep(2000);
-        const sentThreads = GmailApp.search('from:me to:' + recipient);
-        const [ thread ] = sentThreads;
-        // set label
-        thread.addLabel(this.getGmailLabel(prefix + ':' + category.title));
-        // move item to inbox and set unread
-        // if no forwarding
-        if (!forwarding && !silent) {
-            thread.markUnread().moveToInbox();
-        }
-        // return thread id
+        // result
         return { threadId: thread.getId() };
     }
 
@@ -150,7 +105,81 @@ export class GmailService {
         return { remainingDailyQuota: MailApp.getRemainingDailyQuota() };
     }
 
-    private getGmailLabel(name: string) {
+    private loadCategory(categoryName: string, silent: boolean) {
+        const { categories } = this.options;
+        // category
+        let category: string | Category = categories[categoryName] || categories['uncategorized'];
+        if (typeof category === 'string') {
+            category = { title: category, silent: false };
+        }
+        // override category silent
+        if (silent !== null && silent !== undefined) {
+            category.silent = !!silent;
+        }
+        return category;
+    }
+
+    private processMailingData<TemplateData>(
+        mailingData: MailingData,
+        template: {[name: string]: TemplateData},
+        silent: boolean,
+    ) {
+        const { prefix, forwarding, templates } = this.options;
+        const {
+            recipient,
+            subject = 'A email sent by Sheetbase app',
+            body,
+            options = {},
+        } = mailingData;
+        // forwarding
+        if (!!forwarding && !silent) {
+            options['bcc'] = !!options['bcc'] ? (options['bcc'] + ', ' + forwarding) : forwarding;
+        }
+        // templating (htmlBody)
+        if (!!template) {
+            // load template
+            const [ templateName ] = Object.keys(template);
+            const data = template[templateName] || {};
+            const templating = templates[templateName] || ((data: any) => (
+                '<p><code><pre>' + JSON.stringify(data, null, 3) + '</pre></code></p>'
+            ));
+            // build html body
+            options['htmlBody'] = templating(data);
+        }
+        // final data
+        return {
+            recipient,
+            subject: `(${ prefix }) ` + subject,
+            body: body /* input body */ || (
+                !!options['htmlBody'] ?
+                // text version of html body
+                options['htmlBody'].replace(/<[^>]*>?/g, '') :
+                // default body
+                'This email was sent by a Sheetbase backend app.'
+            ),
+            options,
+        };
+    }
+
+    private processThread(recipient: string, category: Category) {
+        const { forwarding, prefix } = this.options;
+        // retrieve sent thread
+        Utilities.sleep(2000);
+        const sentThreads = GmailApp.search('from:me to:' + recipient);
+        const [ thread ] = sentThreads;
+        // add label
+        thread.addLabel(
+            this.getLabel(prefix + ':' + category.title),
+        );
+        // move item to inbox and set unread
+        // if no forwarding
+        if (!forwarding && !category.silent) {
+            thread.markUnread().moveToInbox();
+        }
+        return thread;
+    }
+
+    private getLabel(name: string) {
         let label = GmailApp.getUserLabelByName(name);
         if (!label) {
             label = GmailApp.createLabel(name);
