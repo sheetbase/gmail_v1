@@ -27,9 +27,9 @@ const Gmail = GmailModule.Gmail;
 
 ## Usage
 
-- Docs homepage: https://sheetbase.github.io/gmail-server
+- Docs homepage: https://sheetbase.github.io/gmail
 
-- API reference: https://sheetbase.github.io/gmail-server/api
+- API reference: https://sheetbase.github.io/gmail/api
 
 <!-- <block:body> -->
 
@@ -252,7 +252,7 @@ Override category silent:
 
 ## License
 
-**@sheetbase/gmail** is released under the [MIT](https://github.com/sheetbase/gmail-server/blob/master/LICENSE) license.
+**@sheetbase/gmail** is released under the [MIT](https://github.com/sheetbase/gmail/blob/master/LICENSE) license.
 
 <!-- <block:footer> -->
 

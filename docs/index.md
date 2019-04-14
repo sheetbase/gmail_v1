@@ -1,3 +1,3 @@
 # @sheetbase/gmail
 
-- [API Reference](https://sheetbase.github.io/gmail-server/api)
+- [API Reference](https://sheetbase.github.io/gmail/api)
