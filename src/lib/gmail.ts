@@ -10,7 +10,6 @@ export class GmailService {
 
     constructor(options: Options) {
         this.options = {
-            prefix: 'App',
             categories: {},
             templates: {},
             ... options,
@@ -69,7 +68,7 @@ export class GmailService {
         mailingData: MailingData,
         categoryName = 'uncategorized',
         template: {[name: string]: TemplateData} = null,
-        silent = null, // custom silent (override category silent)
+        customSilent = null, // override category silent
     ) {
         if(
             !mailingData ||
@@ -79,7 +78,7 @@ export class GmailService {
         }
 
         // category
-        const category = this.loadCategory(categoryName, silent);
+        const category = this.getCategory(categoryName, customSilent);
 
         // data
         const {
@@ -105,7 +104,7 @@ export class GmailService {
         return { remainingDailyQuota: MailApp.getRemainingDailyQuota() };
     }
 
-    private loadCategory(categoryName: string, silent: boolean) {
+    private getCategory(categoryName: string, silent: boolean) {
         const { categories } = this.options;
         // category
         let category: string | Category = categories[categoryName] || categories['uncategorized'];
