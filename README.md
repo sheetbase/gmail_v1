@@ -4,7 +4,7 @@ Send email using Gmail in Sheetbase backend app.
 
 <!-- <block:header> -->
 
-[![Build Status](https://travis-ci.com/sheetbase/gmail-server.svg?branch=master)](https://travis-ci.com/sheetbase/gmail-server) [![Coverage Status](https://coveralls.io/repos/github/sheetbase/gmail-server/badge.svg?branch=master)](https://coveralls.io/github/sheetbase/gmail-server?branch=master) [![NPM](https://img.shields.io/npm/v/@sheetbase/gmail-server.svg)](https://www.npmjs.com/package/@sheetbase/gmail-server) [![License][license_badge]][license_url] [![clasp][clasp_badge]][clasp_url] [![Support me on Patreon][patreon_badge]][patreon_url] [![PayPal][paypal_donate_badge]][paypal_donate_url] [![Ask me anything][ask_me_badge]][ask_me_url]
+[![Build Status](https://travis-ci.com/sheetbase/gmail.svg?branch=master)](https://travis-ci.com/sheetbase/gmail) [![Coverage Status](https://coveralls.io/repos/github/sheetbase/gmail/badge.svg?branch=master)](https://coveralls.io/github/sheetbase/gmail?branch=master) [![NPM](https://img.shields.io/npm/v/@sheetbase/gmail.svg)](https://www.npmjs.com/package/@sheetbase/gmail) [![License][license_badge]][license_url] [![clasp][clasp_badge]][clasp_url] [![Support me on Patreon][patreon_badge]][patreon_url] [![PayPal][paypal_donate_badge]][paypal_donate_url] [![Ask me anything][ask_me_badge]][ask_me_url]
 
 <!-- </block:header> -->
 
@@ -35,12 +35,12 @@ const Gmail = GmailModule.Gmail;
 
 ## Getting started
 
-Install: `npm install --save @sheetbase/gmail-server`
+Install: `npm install --save @sheetbase/gmail`
 
 Usage:
 
 ```ts
-import { gmail } from "@sheetbase/gmail-server";
+import { gmail } from "@sheetbase/gmail";
 
 const Gmail = gmail(
   /* options */ {
@@ -257,7 +257,7 @@ Override category silent:
 <!-- <block:footer> -->
 
 [license_badge]: https://img.shields.io/github/license/mashape/apistatus.svg
-[license_url]: https://github.com/sheetbase/gmail-server/blob/master/LICENSE
+[license_url]: https://github.com/sheetbase/gmail/blob/master/LICENSE
 [clasp_badge]: https://img.shields.io/badge/built%20with-clasp-4285f4.svg
 [clasp_url]: https://github.com/google/clasp
 [patreon_badge]: https://lamnhan.github.io/assets/images/badges/patreon.svg
